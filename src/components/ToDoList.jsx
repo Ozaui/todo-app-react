@@ -1,14 +1,15 @@
 import React from "react";
 
-function ToDoList({ list }) {
+function ToDoList({ list, onRemove }) {
   return (
-    <div>
-      <ul>
-        {list.map((item, index) => (
-          <li key={index}>{item}</li>
-        ))}
-      </ul>
-    </div>
+    <ul className="todo-list">
+      {list.map((item) => (
+        <li key={item.id}>
+          {item.text}
+          <button onClick={() => onRemove(item.id)}>X</button>
+        </li>
+      ))}
+    </ul>
   );
 }
 
